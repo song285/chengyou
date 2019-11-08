@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"> -->
+	<title>高中生教务管理系统</title>
+	<link rel="stylesheet" href="../css/style.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/mock.js"></script>
+    <script src="../js/angular.js"></script>
+    <script src="../js/xlsx.full.min.js"></script> 
+</head>
+<body>
+	<div class="body">
+		<div class="header">
+			<div class="header-wrap">
+				<a href="#" style="color: #f85959;font-size: 24px;float: left;margin-top: 12px;width: auto;height: auto;">教务管理系统</a>
+				<div class="header-loginer">
+					<p class="loginer">欢迎使用，宋健老师!</p>
+					<a href="#" class="exit">退出</a>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div style="margin-top: 80px;display: inline-block;" class="content-menu">
+				<div class="sub-txt list" id="item1">
+					<span class="menu-txt">首页</span>
+				</div>
+				<div class="sub-txt" id="item2">
+					<span class="menu-txt">查看选课情况</span>
+				</div>
+				<div class="sub-txt" id="item3">
+					<span class="menu-txt">课程组合情况</span>
+				</div>
+				<div class="sub-txt" id="item4">
+					<span class="menu-txt">导入学生名单</span>
+				</div>
+				<div class="sub-txt" id="item5">
+					<span class="menu-txt">录入学生成绩</span>
+				</div>
+				<div class="sub-txt" id="item6">
+					<span class="menu-txt">设置课程表</span>
+				</div>
+				<div class="sub-txt" id="item7">
+					<span class="menu-txt">修改密码</span>
+				</div>
+			</div>
+			<div class="content-right content-right1" style="top:80px;display: block;">
+				<div class="myHome">
+					<p>欢迎使用教务管理系统-教师端</p>
+				</div>
+			</div>
+			<div class="content-right content-right2" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">查看选课情况</a>
+					</div>
+					<!-- <div>
+						<p id="time" style="text-align: center;height: auto; padding-top: 20px;color: red;font-size: 16px;"></p>
+					</div> -->
+				</div>
+
+				<div class="left-main">
+					<img src="../img/left.png" alt="" class="play_left" style="margin-left: -20px;">
+					<img src="../img/right.png" alt="" class="play_right" style="margin-left: 880px;">
+					<form action="" style="height: 450px;" id="showCourInfo">
+						<table cellspacing="0">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>方案</th>
+									<th>课程1</th>
+									<th>课程2</th>
+									<th>课程3</th>
+									<th>课程4</th>
+									<th>课程5</th>
+									<th>课程6</th>
+									<th>已选 | 未选</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th><span> 1</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>生物</span></th>
+									<th><span>化学</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>2</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>生物</span></th>
+									<th><span>地理</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr>
+									<th><span>3</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>生物</span></th>
+									<th><span>政治</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>4</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>地理</span></th>
+									<th><span>化学</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr>
+									<th><span>5</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>政治</span></th>
+									<th><span>化学</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>6</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>地理</span></th>
+									<th><span>政治</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr>
+									<th><span>7</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>生物</span></th>
+									<th><span>化学</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>8</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>生物</span></th>
+									<th><span>地理</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr>
+									<th><span>9</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>生物</span></th>
+									<th><span>政治</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>10</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>地理</span></th>
+									<th><span>化学</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr>
+									<th><span>11</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>政治</span></th>
+									<th><span>化学</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>12</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>地理</span></th>
+									<th><span>政治</span></th>
+									<th><span>50 | 0</span></th>
+								</tr>
+							</tbody>
+						</table>
+						<iframe src="chart.html" frameborder="0" style="display: none;"></iframe>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right3" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">课程组合情况</a>
+					</div>
+				</div>
+				<div class="selectBox">
+					<span>
+						<input id="selectKey" type="text" class="inputText" placeholder="输入需要查询的内容" style="width: auto;" value="">
+					</span>
+					<input type="button" class="btn" id="situation" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="查询">
+				</div>
+				<div class="left-main" ng-app="app">
+					<form action="" style="height: 400px;" ng-controller="ctrl">
+						<table cellspacing="0" id="table">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>学号</th>
+									<th>姓名</th>
+									<th>性别</th>
+									<th>年龄</th>
+									<th>班级</th>
+									<th>已选课程</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="user in users">
+									<th><span ng-bind="user.id" id="userid"></span></th>
+									<th><span ng-bind="user.name" id="username"></span></th>
+									<th><span ng-bind="user.sex" id="usersex"></span></th>
+									<th><span ng-bind="user.age" id="userage"></span></th>
+									<th><span ng-bind="user.class" id="userclass"></span></th>
+									<th><span ng-bind="user.course" id="usercourse"></span></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right4" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">导入学生名单</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<div class="selectBox">
+						<input type="file" id="file" style="display: none;">
+						<input type="button" class="btn" style="width: 80px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="导入名单" id="loadNamelist">
+						<input type="button" class="btn" style="width: 80px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="提交" id="loadNamelistSubmit">
+					</div>
+					<form action="" id="courTable" class="loadStulist" style="height: 400px;"></form>
+				</div>
+			</div>
+			<div class="content-right content-right5" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">录入学生成绩</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<div class="selectBox">
+						<input type="button" class="btn" id="record" style="width: 80px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="开始录入">
+						<input type="button" class="btn" style="width: 80px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="提交" id="submitRecord">
+					</div>
+					<form action="" id="courTable" class="record" style="height: 400px;">
+						<table cellspacing="0" style="border: 1.5px solid #e8e8e8;">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>学号</th>
+									<th>姓名</th>
+									<th>学年</th>
+									<th>学期</th>
+									<th>课程名称</th>
+									<th>期中成绩</th>
+									<th>期末成绩</th>
+									<th>月考成绩1</th>
+									<th>月考成绩2</th>
+									<th>月考成绩3</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right6" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">设置课程表</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<div class="selectBox">
+						<span>学年：
+							<select name="select" id="select" class="select">
+								<option value="1">2018</option>
+								<option value="2">2017</option>
+							</select>
+						</span>
+						<span>学期：
+							<select name="select" id="select" class="select">
+								<option value="1">1</option>
+								<option value="2">2</option>
+							</select>
+						</span>
+						<span>年级：
+							<select name="select" id="select" class="select">
+								<option value="1">高一</option>
+								<option value="2">高二</option>
+								<option value="2">高三</option>
+							</select>
+						</span>
+						<span>班级：
+							<select name="select" id="select" class="select">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</span>
+						<input type="button" class="btn" id="courseSelect" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="查询">
+						<input type="button" class="btn" id="courseEditer" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="编辑">
+						<input type="button" class="btn" id="courseSubmit" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="提交">
+					</div>
+					<form action="" id="courTable" class="setCourse" style="height: 400px;">
+						<table cellspacing="0" style="border: 1.5px solid #e8e8e8;">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>时间\星期</th>
+									<th>星期一</th>
+									<th>星期二</th>
+									<th>星期三</th>
+									<th>星期四</th>
+									<th>星期五</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th rowspan="4" class="courtime">上午</th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th rowspan="4" class="courtime">下午</th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+								<tr>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+									<th><span></span></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right7" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">修改密码</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<form action="" style="height: 400px;">
+						<table cellspacing="0">
+							<thead>
+								<tr>
+									<th style="text-align: right;width: 110px;font-size: 14px;">教师编号：</th>
+									<th style="text-align: left;"><input type="text" name="text" style="height: auto;width: auto;text-align: left;" disabled="disabled" value="456789"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th style="text-align: right;">输入原密码：</th>
+									<th style="text-align: left;width: 200px;"><input type="text" name="text" style="height: auto;width: auto;" required id="befPsw">
+									<span style="display: none;color: red;width: auto;height: auto;" id="error1">请输入原密码</span></th>
+								</tr>
+								<tr>
+									<th style="text-align: right;">输入新密码：</th>
+									<th style="text-align: left;"><input type="text" name="text" style="height: auto;width: auto;" required id="newPsw">
+										<span style="display: none;color: red;width: auto;height: auto;" id="error2">请输入新密码</span></th>
+								</tr>
+								<tr>
+									<th style="text-align: right;">确认新密码：</th>
+									<th style="text-align: left;"><input type="text" name="text" style="height: auto;width: auto;" required id="ensurePsw">
+										<span style="display: none;color: red;width: auto;height: auto;" id="error3">确认密码与新密码不一致</span></th>
+								</tr>
+								<tr>
+									<th colspan="2"><input type="button" name="button" class="btn" value="修改" style="margin: 0;" id="tcherUppsw"></th>
+								</tr>
+								<tr>
+									<th colspan="2" style="text-align: left;padding-left: 280px;"><span>登录密码修改规则说明：<br>1.密码长度为6~16位，至少包含数字、字母、特殊符号中的两类，字母区分大小写<br>2.密码不可与账号相同<br>3.密码不可以与身份证号后几位相同</span></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div style="height: auto;width: auto;margin-top: 20px;text-align: center;">
+				<span>CopyRight <img src="../img/a9.png" alt="" style="width: 13px;height: 13px;"> 2019 宋健  All Rights Reserved </span>
+			</div>
+		</div>
+		<!-- 信息框 -->
+		<div class="popLayer popsome"></div>
+		<div class="dialog popBox popsome">
+			<div class="close">
+				<div style="height: 35px;background-color: #f85959;">
+					<a style="float: left;width: auto;color: #fff;font-size: 16px;padding-left: 10px;margin-top: 7px;">温馨提示</a>
+					<a href="javascript:void(0)" id="close" style="color: #fff;font-size: 30px;padding-right: 10px;margin-top: 10px;">×</a>
+				</div>
+				<div style="width: auto; float:left;padding-left: 20px;padding-top: 10px;height: 20px;">请问是否确定提交？</div>
+				<div style="height: 85px;display: inline-block;">
+					<input type="button" value="确定" class="btn okay">
+					<input type="button" value="取消" class="btn cancle">
+				</div>
+			</div>
+		</div>
+		<!-- 录入成绩对话框 -->
+		<div class="recordBox popBox popsome"  style="width: 480px;height: 300px;display: none;">
+			<div class="close closeRecord" style="background-color: #fff;text-align: left;">
+				<div style="height: 35px;background-color: #f85959;">
+					<a style="float: left;width: auto;color: #fff;font-size: 16px;padding-left: 10px;margin-top: 7px;">成绩录入</a>
+					<a href="javascript:void(0)" id="closeRecord" style="color: #fff;font-size: 30px;margin-top: 10px;margin-left:380px;">×</a>
+				</div>
+				<div style="width: 500px;height: 165px;">
+					<div style="height: auto;display: inline-block;">
+						<form action="" method="post">
+							<ul>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">学号：</span>
+									<input id="stuNum" type="text" class="inputText" placeholder="学号" style="width: 110px;" value="">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">姓名：</span>
+									<input id="stuName" class="inputText" type="text" placeholder="姓名" style="width: 110px;">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">学年：</span>
+									<select name="select" id="learnYear" class="select">
+										<option value="2018">2018</option>
+										<option value="2017">2017</option>
+									</select>
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">学期：</span>
+									<select name="select" id="learnDate" class="select">
+										<option value="上学期">上学期</option>
+										<option value="下学期">下学期</option>
+									</select>
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">课程名称：</span>
+									<input id="courseName" class="inputText" type="text" placeholder="课程名称" style="width: auto;width: 110px;">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">期中成绩：</span>
+									<input id="midRecored" class="inputText" type="text" placeholder="期中成绩" style="width: auto;width: 110px;">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">期末成绩：</span>
+									<input id="endRecored" class="inputText" type="text" placeholder="期末成绩" style="width: auto;width: 110px;">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">月考成绩1：</span>
+									<input id="monthRecored1" class="inputText" type="text" placeholder="月考成绩1" style="width: auto;width: 110px;">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">月考成绩2：</span>
+									<input id="monthRecored2" class="inputText" type="text" placeholder="月考成绩2" style="width: auto;width: 110px;">
+								</li>
+								<li style="margin: 10px 0;width: 230px;display: inline-block;">
+									<span style="margin-left: 30px;">月考成绩3：</span>
+									<input id="monthRecored3" class="inputText" type="text" placeholder="月考成绩3" style="width: auto;width: 110px;">
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div style="height: 30px;display: inline-block;margin-left: 90px;">
+						<input type="button" value="确定" class="btn" id="okayRecord" style="margin-top:0;">
+						<input type="button" value="取消" class="btn" id="cancleRecord" style="margin-top:0;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div  class="msg teacmsg">
+			<p>提交成功</p>
+		</div>
+	</div>
+	<script src="../js/main.js"></script>
+	<script type="text/javascript">
+		// Mock响应模板
+		Mock.mock('http://test.com', {
+		    "users|10-50": [{   // 随机生成10到50个数组元素
+		        'name': '@cname',  // 中文名称
+		        'id|+1': 5187101201,    // 属性值自动加 1，初始值为5187101201
+		        'age|15-18': 0,   // 15至18以内随机整数, 0只是用来确定类型
+		        'sex|1':["男","女"],
+		        'class|1': ["一班","二班","三班"],  
+		        'course|1': ["方案一","方案二","方案三","方案四","方案五","方案六","方案七","方案八","方案九","方案十","方案十一","方案十二"],   
+		    }]
+		});
+ 
+		angular.module('app', [])
+ 
+		.service('userService', ['$http', function ($http) {
+			return {
+				doRequest:function(){
+					return $http({
+						url:'http://test.com',
+						method:'post'
+					});
+				}
+			};
+		}])
+		.controller('ctrl', ['$scope', 'userService', function ($scope, userService) {
+			userService.doRequest().then(function success(response){
+				console.log(response);
+				$scope.users = response.data.users;
+			}, function error(){
+				console.error('error...');
+			})
+		}]);
+	</script>
+</body>
+</html>

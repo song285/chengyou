@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>高中生教务管理系统</title>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jsapi.js"></script>
+<script type="text/javascript" src="../js/corechart.js"></script>		
+<script type="text/javascript" src="../js/jquery.gvChart-1.0.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.ba-resize.min.js"></script>
+<script type="text/javascript">
+gvChartInit();
+$(document).ready(function(){
+	$('#myTable5').gvChart({
+		chartType: 'PieChart',
+		gvSettings: {
+			vAxis: {title: 'No of players'},
+			hAxis: {title: 'Month'},
+			width: 650,
+			height: 400
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div style="width:600px;margin:0 auto;">
+	   <table id='myTable5'>
+			<caption>单科人数分布</caption>
+			<thead>
+				<tr>
+					<th></th>
+					<th>语文</th>
+					<th>数学</th>
+					<th>外语</th>
+					<th>物理</th>
+					<th>历史</th>
+					<th>化学</th>
+					<th>生物</th>
+					<th>政治</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<!-- <th>540</th> -->
+					<td>540</td>
+					<td>540</td>
+					<td>540</td>
+					<td>300</td>
+					<td>240</td>
+					<td>40</td>
+					<td>200</td>
+					<td>300</td>
+				</tr>
+			</tbody>
+		</table>  	
+	</div>	
+</div>
+</body>
+</html>

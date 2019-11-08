@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高中生教务管理系统</title>
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+</head>
+<body class="login_bg">
+	<div class="login_box">
+		<form action="#" method="post">
+			<span style="display: none; color: red;width: auto;height: auto;margin-left: 40%;" id="error1">请输入用户名</span>
+			<span style="display: none;color: red;width: auto;height: auto;margin-left: 40%;" id="error2">请输入密码</span>
+			<span style="display: none;color: red;width: auto;height: auto;margin-left: 40%;" id="error3">不能为空</span>
+			<ul>
+				<li>
+					<span>用 户 名</span>
+					<input class="text" id="username" type="text" placeholder="请输入用户名" style="width: 210px;" required>
+				</li>
+				<li>
+					<span>密&nbsp&nbsp&nbsp&nbsp&nbsp码</span>
+					<input class="text" id="psw" type="text" placeholder="请输入密码" style="width: 210px;" required>
+				</li>
+				<li>
+					<span>验 证 码</span>
+					<input class="text" id="code" type="text" placeholder="请输入验证码" style="width: 90px;" required>
+					<img src="http://www.lezhuan.com/vcode/ys.php?0.7522561528681309" onclick="this.src='http://www.lezhuan.com/vcode/ys.php?'+(new Date().getTime());" alt="点击刷新">
+				</li>
+				<li style="line-height: 20px;height: 20px;">
+					<span>登录身份</span>
+					<div>
+						<input type="radio" value="1" style="width: 13px;height: 13px;" name="radio" class="radio1" checked="checked">
+						<p style="display: inline-block; width: 50px;height: 10px;text-align: center;">学生</p>
+						<input type="radio" value="2" style="width: 13px;height: 13px;"  name="radio" class="radio2">
+						<p style="display: inline-block; width: 50px;height: 10px;text-align: center;">老师</p>
+						<p class="index" style="display: none"></p>
+					</div>
+				</li>
+				<input class="btn" id="login" type="button" value="登&nbsp&nbsp&nbsp录">
+				<li>
+					<div style="text-align: center;">
+						<a class="forget" href="#" style="color: #aaa;">忘记密码？</a>
+					</div>
+				</li>
+			</ul>
+		</form>
+	</div>
+	<script>
+		// 登录
+	$("#login").click(function(){
+		if ($("#username").val()==""||$("#psw").val()==""||$("#code").val()=="") {
+			$("#error3").css("display","inline-block");
+		}else{
+			if($('input:radio[type="radio"]:checked').val()==1){
+				window.location.href="html/student.html";
+			}else{
+				window.location.href="html/teacher.html";
+			}
+		}
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>高中生教务管理系统</title>
+	<link rel="stylesheet" href="../css/style.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/mock.js"></script>
+    <script src="../js/angular.js"></script>
+</head>
+<body>
+	<div class="body">
+		<div class="header">
+			<div class="header-wrap">
+				<a href="#" style="color: #f85959;font-size: 24px;float: left;margin-top: 12px;width: auto;height: auto;">教务管理系统</a>
+				<div class="header-loginer">
+					<p class="loginer">欢迎使用，宋健同学!</p>
+					<a href="#" class="exit">退出</a>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div style="margin-top: 80px;display: inline-block;" class="content-menu">
+				<div class="sub-txt list" id="item1">
+					<span class="menu-txt">首页</span>
+				</div>
+				<div class="sub-txt" id="item2">
+					<span class="menu-txt">开始选课</span>
+				</div>
+				<div class="sub-txt" id="item3">
+					<span class="menu-txt">我的选课</span>
+				</div>
+				<div class="sub-txt" id="item4">
+					<span class="menu-txt">我的课程表</span>
+				</div>
+				<div class="sub-txt" id="item5">
+					<span class="menu-txt">查看成绩</span>
+				</div>
+				<div class="sub-txt" id="item6">
+					<span class="menu-txt">个人资料</span>
+				</div>
+				<div class="sub-txt" id="item7">
+					<span class="menu-txt">修改密码</span>
+				</div>
+			</div>
+			<div class="content-right content-right1" style="top:80px;display: block;">
+				<div class="myHome">
+					<p>欢迎使用教务管理系统-学生端</p>
+				</div>
+			</div>
+			<div class="content-right content-right2" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">开始选课</a>
+					</div>
+					<div>
+						<p id="time" style="text-align: center;height: auto; padding-top: 20px;color: red;font-size: 16px;"></p>
+					</div>
+				</div>
+				<div class="left-main">
+					<form action="">
+						<table cellspacing="0">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>方案</th>
+									<th>课程1</th>
+									<th>课程2</th>
+									<th>课程3</th>
+									<th>课程4</th>
+									<th>课程5</th>
+									<th>课程6</th>
+									<th>已选 | 未选</th>
+									<th>选择</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th><span>1</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>生物</span></th>
+									<th><span>化学</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="1" id="radio1" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>2</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>生物</span></th>
+									<th><span>地理</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="2" id="radio2" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr>
+									<th><span>3</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>生物</span></th>
+									<th><span>政治</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="3" id="radio3" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>4</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>地理</span></th>
+									<th><span>化学</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="4" id="radio4" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr>
+									<th><span>5</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>政治</span></th>
+									<th><span>化学</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="5" id="radio5" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>6</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>物理</span></th>
+									<th><span>地理</span></th>
+									<th><span>政治</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="6" id="radio6" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr>
+									<th><span>7</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>生物</span></th>
+									<th><span>化学</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="7" id="radio7" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>8</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>生物</span></th>
+									<th><span>地理</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="8" id="radio8" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr>
+									<th><span>9</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>生物</span></th>
+									<th><span>政治</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="9" id="radio9" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>10</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>地理</span></th>
+									<th><span>化学</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="10" id="radio10" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr>
+									<th><span>11</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>政治</span></th>
+									<th><span>化学</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="11" id="radio11" name="radio" style="width: 13px;"></th>
+								</tr>
+								<tr style="background: #f4f5f6;">
+									<th><span>12</span></th>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>地理</span></th>
+									<th><span>政治</span></th>
+									<th><span>0 | 50</span></th>
+									<th><input type="radio" value="12" id="radio12" name="radio" style="width: 13px;"></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+					<input type="button" value="提交" class="btn" id="btn">
+				</div>
+			</div>
+			<div class="content-right content-right3" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">我的选课</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<form action="" style="height: 400px;">
+						<table cellspacing="0">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>课程1</th>
+									<th>课程2</th>
+									<th>课程3</th>
+									<th>课程4</th>
+									<th>课程5</th>
+									<th>课程6</th>
+									<th>已选 | 未选</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th><span>语文</span></th>
+									<th><span>数学</span></th>
+									<th><span>外语</span></th>
+									<th><span>历史</span></th>
+									<th><span>地理</span></th>
+									<th><span>政治</span></th>
+									<th><span>45 | 5</span></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right4" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">我的课程表</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<div class="selectBox">
+						<span>学年：
+							<select name="select" id="select" class="select">
+								<option value="1">2018</option>
+								<option value="2">2017</option>
+							</select>
+						</span>
+						<span>学期：
+							<select name="select" id="select" class="select">
+								<option value="1">1</option>
+								<option value="2">2</option>
+							</select>
+						</span>
+						<span>年级：
+							<select name="select" id="select" class="select">
+								<option value="1">高一</option>
+								<option value="2">高二</option>
+								<option value="2">高三</option>
+							</select>
+						</span>
+						<span>班级：
+							<select name="select" id="select" class="select">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+							<input type="button" class="btn" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="查询">
+						</span>
+					</div>
+					<form action="" id="courTable" class="mycourTable" style="height: 400px;">
+						<table cellspacing="0" style="border: 1.5px solid #e8e8e8;">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>时间\星期</th>
+									<th>星期一</th>
+									<th>星期二</th>
+									<th>星期三</th>
+									<th>星期四</th>
+									<th>星期五</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th rowspan="4">上午</th>
+									<th id="data0"></th>
+									<th id="data1"></th>
+									<th id="data2"></th>
+									<th id="data3"></th>
+									<th id="data4"></th>
+								</tr>
+								<tr>
+									<th id="data5"></th>
+									<th id="data6"></th>
+									<th id="data7"></th>
+									<th id="data8"></th>
+									<th id="data9"></th>
+								</tr>
+								<tr>
+									<th id="data10"></th>
+									<th id="data11"></th>
+									<th id="data12"></th>
+									<th id="data13"></th>
+									<th id="data14"></th>
+								</tr>
+								<tr>
+									<th id="data15"></th>
+									<th id="data16"></th>
+									<th id="data17"></th>
+									<th id="data18"></th>
+									<th id="data19"></th>
+									
+								</tr>
+								<tr>
+									<th rowspan="4">下午</th>
+									<th id="data20"></th>
+									<th id="data21"></th>
+									<th id="data22"></th>
+									<th id="data23"></th>
+									<th id="data24"></th>
+									
+								</tr>
+								<tr>
+									<th id="data25"></th>
+									<th id="data26"></th>
+									<th id="data27"></th>
+									<th id="data28"></th>
+									<th id="data29"></th>
+									
+								</tr>
+								<tr>
+									<th id="data30"></th>
+									<th id="data31"></th>
+									<th id="data32"></th>
+									<th id="data33"></th>
+									<th id="data34"></th>
+									
+								</tr>
+								<tr>
+									<th id="data35"></th>
+									<th id="data36"></th>
+									<th id="data37"></th>
+									<th id="data38"></th>
+									<th id="data39"></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right5" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">查看成绩</a>
+					</div>
+				</div>
+				<div class="left-main"  ng-app="app">
+					<div class="selectBox">
+						<span>
+							<input id="selectKey" type="text" class="inputText" placeholder="输入需要查询的内容" style="width: auto;" value="">
+						</span>
+						<input type="button" class="btn" id="situation" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="查询">
+					</div>
+					<form action="" id="courTable" class="myRecord" style="height: 400px;"  ng-controller="ctrl">
+						<table cellspacing="0" style="border: 1.5px solid #e8e8e8;" id="table">
+							<thead>
+								<tr style="background: #f4f5f6;font-weight: bold;">
+									<th>学年</th>
+									<th>学期</th>
+									<th>课程名称</th>
+									<th>期中成绩</th>
+									<th>期末成绩</th>
+									<th>月考成绩1</th>
+									<th>月考成绩2</th>
+									<th>月考成绩3</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr  ng-repeat="user in users">
+									<th><span ng-bind="user.learnYear"></span></th>
+									<th><span ng-bind="user.learnDate"></span></th>
+									<th><span ng-bind="user.courseName"></span></th>
+									<th><span ng-bind="user.midRecored"></span></th>
+									<th><span ng-bind="user.endRecored"></span></th>
+									<th><span ng-bind="user.monthRecored1"></span></th>
+									<th><span ng-bind="user.monthRecored2"></span></th>
+									<th><span ng-bind="user.monthRecored3"></span></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right6" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">个人资料</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<form action="" class="selfInfo" style="height: 400px;">
+						<table cellspacing="0" style="text-align: left;">
+							<tbody>
+								<tr>
+									<th rowspan="4" style="width: 90px;height: 150px;"><img src="../img/timg.jpg" alt=""></th>
+									<th colspan="2"><span>学号：</span><span>5187101243</span></th>
+									<th colspan="2"><span>姓名：</span><span><input type="text" name="text" class="inputText" disabled="disabled" value="宋健"></span></th>
+									<th colspan="2"><span>性别：</span>
+										<input style="width: 13px;height: 13px;" type="radio" name="radio" value="男" disabled="disabled"><span>男</span>
+										<input style="width: 13px;height: 13px;" type="radio" name="radio" value="女" disabled="disabled"><span>女
+									</span></th>
+								</tr>
+								<tr>
+									<th colspan="2"><span>民族：</span><span><input type="text" name="text" class="inputText" disabled="disabled" value="苗族"></span></th>
+									<th colspan="2"><span>籍贯：</span><span><input type="text" name="text" class="inputText" disabled="disabled" value="重庆市酉阳县" style="width: 200px;"></span></th>
+									<th colspan="2"><span>出生日期：</span><span>
+										<select name="select" id="select" class="select" disabled="disabled">
+											<option value="1">1997</option>
+											<option value="2">1996</option>
+										</select>
+										<select name="select" id="select" class="select" disabled="disabled">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+										</select>
+									</span></th>
+								</tr>
+								<tr>
+									<th colspan="2"><span>年级：</span><span>
+										<select name="select" id="select" class="select" disabled="disabled">
+											<option value="1">2019</option>
+											<option value="2">2018</option>
+											<option value="3">2017</option>
+										</select></span></th>
+									<th colspan="2"><span>学级：</span><span>
+										<select name="select" id="select" class="select" disabled="disabled">
+											<option value="1">高一</option>
+											<option value="2">高二</option>
+											<option value="3">高三</option>
+										</select>
+									</span></th>
+									<th colspan="2"><span>班级：</span><span>
+										<select name="select" id="select" class="select" disabled="disabled">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+									</span></th>
+								</tr>
+								<tr>
+									<th colspan="4"><span>身份证：</span><span><input type="text" name="text" class="inputText" disabled="disabled" value="4567887654456723" style="width: 300px;"></span></th>
+									<th colspan="2"><span>手机号：</span><span><input type="text" name="text" class="inputText" disabled="disabled" value="134566543"></span></th>
+								</tr>
+								<tr>
+									<th style="text-align: center;">
+										<input type="file" name="files" id="files" style="display: none;">
+										<input type="button" class="btn" style="width: 50px;height: 20px;margin: 0;margin-top: 10px;font-size: 12px;" value="浏览" id="loadPic">
+									</th>
+									<script>
+										$("#loadPic").click(function(){
+											$("#files").click();
+										});
+									</script>
+									<th colspan="6"><span>家庭住址：</span><span><input type="text" name="text" style="width: 500px;"  class="inputText" disabled="disabled" value="福建省福州市闽侯县闽江学院"></span></th>
+								</tr>
+								<tr>
+									<th style="text-align: center;">父亲电话：</th>
+									<th colspan="3"><span><input type="text" name="text" class="inputText" disabled="disabled" value="1345654567"></span></th>
+									<th colspan="4">单位地址：<span><input type="text" name="text" class="inputText" disabled="disabled" value="福建省福州市" style="width: 300px;"></span></th>
+								</tr>
+								<tr>
+									<th style="text-align: center;">母亲电话：</th>
+									<th colspan="3"><span><input type="text" name="text" class="inputText" disabled="disabled" value="139789878"></span></th>
+									<th colspan="4">单位地址：<span><input type="text" name="text" class="inputText" disabled="disabled" value="福建省福州市" style="width: 300px;"></span></th>
+								</tr>
+								<tr>
+									<th colspan="8" style="text-align: center;">
+										<input type="button" class="btn" value="修改" id="selfInfoChange" style="margin: 0;">
+										<input type="button" class="btn" value="提交" id="selfInfoSumbit" style="margin: 0;margin-left: 20px;"></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="content-right content-right7" style="top:80px;display: none;">
+				<div class="chanseCour">
+					<div class="nva">
+						<a href="#">修改密码</a>
+					</div>
+				</div>
+				<div class="left-main">
+					<form action="" style="height: 400px;">
+						<table cellspacing="0">
+							<thead>
+								<tr>
+									<th style="text-align: right;width: 110px;font-size: 14px;">学号：</th>
+									<th style="text-align: left;"><input type="text" name="text" style="height: auto;width: auto;text-align: left;" disabled="disabled" value="456789"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th style="text-align: right;">输入原密码：</th>
+									<th style="text-align: left;width: 200px;"><input type="text" name="text" style="height: auto;width: auto;" required id="befPsw">
+									<span style="display: none;color: red;width: auto;height: auto;" id="error1">请输入原密码</span></th>
+								</tr>
+								<tr>
+									<th style="text-align: right;">输入新密码：</th>
+									<th style="text-align: left;"><input type="text" name="text" style="height: auto;width: auto;" required id="newPsw">
+										<span style="display: none;color: red;width: auto;height: auto;" id="error2">请输入新密码</span></th>
+								</tr>
+								<tr>
+									<th style="text-align: right;">确认新密码：</th>
+									<th style="text-align: left;"><input type="text" name="text" style="height: auto;width: auto;" required id="ensurePsw">
+										<span style="display: none;color: red;width: auto;height: auto;" id="error3">确认密码与新密码不一致</span></th>
+								</tr>
+								<tr>
+									<th colspan="2"><input type="button" name="button" class="btn" value="修改" style="margin: 0;" id="tcherUppsw"></th>
+								</tr>
+								<tr>
+									<th colspan="2" style="text-align: left;padding-left: 280px;"><span>登录密码修改规则说明：<br>1.密码长度为6~16位，至少包含数字、字母、特殊符号中的两类，字母区分大小写<br>2.密码不可与账号相同<br>3.密码不可以与身份证号后几位相同</span></th>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div style="height: auto;width: auto;margin-top: 20px;text-align: center;">
+				<span>CopyRight <img src="../img/a9.png" alt="" style="width: 13px;height: 13px;"> 2019 宋健  All Rights Reserved </span>
+			</div>
+		</div>
+		<div class="popLayer popsome"></div>
+		<div class="dialog popBox popsome">
+			<div class="close">
+				<div style="height: 35px;background-color: #f85959;" id="dialogTitle">
+					<a style="float: left;width: auto;color: #fff;font-size: 16px;padding-left: 10px;margin-top: 7px;">温馨提示</a>
+					<a href="javascript:void(0)" id="close" style="color: #fff;font-size: 30px;padding-right: 10px;margin-top: 10px;">×</a>
+				</div>
+				<div style="width: auto; float:left;padding-left: 20px;padding-top: 10px;height: 20px;" id="dialogContext"><span>请问是否确定提交？</span></div>
+				<div style="height: 85px;display: inline-block;">
+					<input type="button" value="确定" class="btn okay">
+					<input type="button" value="取消" class="btn cancle">
+				</div>
+			</div>
+		</div>
+		<div  class="msg">
+			<p>提交成功</p>
+		</div>
+	</div>
+	<script src="../js/main.js"></script>
+	<script type="text/javascript">
+		// Mock响应模板
+		Mock.mock('http://test.com', {
+		    "users|5-10":[{
+		    	'learnYear|+1':2015,
+		    	'learnDate|1':["上学期","下学期"],
+		    	'courseName|1':["javascript基础","java进阶","Oracle高级"],
+		    	'midRecored|60-100':0,
+		    	'endRecored|60-100':0,
+		    	'monthRecored1|60-100':0,
+		    	'monthRecored2|60-100':0,
+		    	'monthRecored3|60-100':0
+		    }]
+		});
+ 
+		angular.module('app', [])
+ 
+		.service('userService', ['$http', function ($http) {
+			return {
+				doRequest:function(){
+					return $http({
+						url:'http://test.com',
+						method:'post'
+					});
+				}
+			};
+		}])
+		.controller('ctrl', ['$scope', 'userService', function ($scope, userService) {
+			userService.doRequest().then(function success(response){
+				console.log(response);
+				$scope.users = response.data.users;
+			}, function error(){
+				console.error('error...');
+			})
+		}]);
+	</script>
+</body>
+</html>
